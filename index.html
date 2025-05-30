@@ -2,24 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Looker Studio Slideshow</title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      height: 100%;
-    }
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-  </style>
-</head>
-<body>
-  <iframe id="lookerFrame" src=""></iframe>
-
+  <title>Redirecting to Looker Studio...</title>
   <script>
     const pages = [
       "https://lookerstudio.google.com/reporting/6d656f8b-0141-4053-b0fc-a475199d52f4/page/page_12345",
@@ -27,12 +10,19 @@
       "https://lookerstudio.google.com/reporting/6d656f8b-0141-4053-b0fc-a475199d52f4/page/p_4ke834qysd"
     ];
     let current = 0;
+
     function rotatePage() {
-      document.getElementById("lookerFrame").src = pages[current];
+      window.location.href = pages[current];
       current = (current + 1) % pages.length;
     }
-    rotatePage();
-    setInterval(rotatePage, 30000); // เปลี่ยนหน้าทุก 30 วิ
+
+    window.onload = function () {
+      rotatePage();
+      setInterval(rotatePage, 30000); // เปลี่ยนหน้าทุก 30 วินาที
+    };
   </script>
+</head>
+<body>
+  <p>Redirecting to Looker Studio page...</p>
 </body>
 </html>
